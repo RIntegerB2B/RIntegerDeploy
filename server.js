@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    port = process.env.PORT || 3006,
+    port = process.env.PORT || 3020,
     bodyParser = require('body-parser');
 var cors = require('cors');
 var exec = require('child_process').exec;
@@ -16,9 +16,9 @@ app.get('/test', function (req, res) {
     res.end("Success!");
 })
 
-app.get('/buyerApp', function (req, res) {
+app.get('/rinteger', function (req, res) {
 
-    exec('sh /home/ubuntu/my-folder/batchfile/deploy-buyer-app.sh',
+    exec('sh /home/ubuntu/deploy/rinteger.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
@@ -32,9 +32,9 @@ app.get('/buyerApp', function (req, res) {
 
 })
 
-app.get('/buyerService', function (req, res) {
+app.get('/rintegerservice', function (req, res) {
 
-    exec('sh /home/ubuntu/my-folder/batchfile/deploy-buyer-service.sh',
+    exec('sh /home/ubuntu/deploy/rinteger-service.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
@@ -48,9 +48,9 @@ app.get('/buyerService', function (req, res) {
 
 })
 
-app.get('/sellerApp', function (req, res) {
+app.get('/rintegeradmin', function (req, res) {
 
-    exec('sh /home/ubuntu/my-folder/batchfile/deploy-seller-app.sh',
+    exec('sh /home/ubuntu/deploy/rinteger-admin.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
@@ -64,9 +64,9 @@ app.get('/sellerApp', function (req, res) {
 
 })
 
-app.get('/sellerService', function (req, res) {
+app.get('/rintegeradminservice', function (req, res) {
 
-    exec('sh /home/ubuntu/my-folder/batchfile/deploy-seller-service.sh',
+    exec('sh /home/ubuntu/deploy/rinteger-admin-service.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
@@ -80,5 +80,5 @@ app.get('/sellerService', function (req, res) {
 
 })
 
-console.log('Buyer App started on: ' + port);
+console.log('Deploy App started on: ' + port);
 
