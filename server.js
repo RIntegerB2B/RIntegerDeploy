@@ -80,5 +80,37 @@ app.get('/rintegeradminservice', function (req, res) {
 
 })
 
+app.get('/rintegercrm', function (req, res) {
+
+    exec('sh /home/ubuntu/deploy/rinteger-crm.sh',
+        (error, stdout, stderr) => {
+            console.log(`${stdout}`);
+
+            console.log(`${stderr}`);
+            res.json(true);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+                res.json(false);
+            }
+        });
+
+})
+
+app.get('/rintegercrmservice', function (req, res) {
+
+    exec('sh /home/ubuntu/deploy/rinteger-crm-service.sh',
+        (error, stdout, stderr) => {
+            console.log(`${stdout}`);
+
+            console.log(`${stderr}`);
+            res.json(true);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+                res.json(false);
+            }
+        });
+
+})
+
 console.log('Deploy App started on: ' + port);
 
